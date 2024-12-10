@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="388.0" prefWidth="361.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="project.rikogunawan.FXMLInputStasiunController">
+   <children>
+      <Button fx:id="btnexit" layoutX="293.0" layoutY="333.0" mnemonicParsing="false" onAction="#exitclick" text="Exit" />
+      <Button fx:id="btncancel" layoutX="258.0" layoutY="292.0" mnemonicParsing="false" onAction="#cancelclick" text="Cancel" />
+      <Button fx:id="btnsave" layoutX="161.0" layoutY="292.0" mnemonicParsing="false" onAction="#saveclick" prefHeight="25.0" prefWidth="87.0" text="Save" />
+      <TextField fx:id="txtkota" layoutX="161.0" layoutY="206.0" />
+      <TextField fx:id="txtalamat" layoutX="161.0" layoutY="170.0" />
+      <TextField fx:id="txtnamastasiun" layoutX="161.0" layoutY="134.0" />
+      <TextField fx:id="txtidstasiun" layoutX="161.0" layoutY="98.0" />
+      <Label layoutX="43.0" layoutY="210.0" text="Kota" />
+      <Label layoutX="43.0" layoutY="174.0" text="Alamat" />
+      <Label layoutX="43.0" layoutY="138.0" text="Nama Stasiun" />
+      <Label layoutX="43.0" layoutY="102.0" text="ID Stasiun" />
+      <Label layoutX="68.0" layoutY="36.0" text="Insert/Update Data Stasiun">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="246.0" text="Status" />
+      <TextField fx:id="txtstatus" layoutX="161.0" layoutY="242.0" />
+   </children>
+</AnchorPane>

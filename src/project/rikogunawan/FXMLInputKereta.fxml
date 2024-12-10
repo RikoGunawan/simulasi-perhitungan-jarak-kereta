@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.rikogunawan.FXMLInputKeretaController">
+   <children>
+      <Button fx:id="btngambar" layoutX="268.0" layoutY="216.0" mnemonicParsing="false" onAction="#gambarclick" text="File" />
+      <TextField fx:id="txtgambar" layoutX="171.0" layoutY="216.0" prefHeight="25.0" prefWidth="97.0" />
+      <Label layoutX="53.0" layoutY="220.0" text="Gambar" />
+      <Label layoutX="78.0" layoutY="49.0" text="Insert/Update Data Kereta">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="112.0" text="ID Kereta" />
+      <Label layoutX="53.0" layoutY="148.0" text="Nama Kereta" />
+      <Label layoutX="53.0" layoutY="184.0" text="Kecepatan" />
+      <TextField fx:id="txtidkereta" layoutX="171.0" layoutY="108.0" />
+      <TextField fx:id="txtnamakereta" layoutX="171.0" layoutY="144.0" />
+      <TextField fx:id="txtkecepatan" layoutX="171.0" layoutY="180.0" />
+      <Button fx:id="btnsave" layoutX="171.0" layoutY="296.0" mnemonicParsing="false" onAction="#saveclick" prefHeight="25.0" prefWidth="87.0" text="Save" />
+      <Button fx:id="btncancel" layoutX="268.0" layoutY="296.0" mnemonicParsing="false" onAction="#cancelclick" text="Cancel" />
+      <Button fx:id="btnexit" layoutX="303.0" layoutY="337.0" mnemonicParsing="false" onAction="#exitclick" text="Exit" />
+   </children>
+</AnchorPane>

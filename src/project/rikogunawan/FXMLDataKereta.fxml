@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="462.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.rikogunawan.FXMLDataKeretaController">
+   <children>
+      <ImageView fx:id="imgkereta" fitHeight="242.0" fitWidth="180.0" layoutX="440.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="searchkereta" layoutX="42.0" layoutY="62.0" onKeyPressed="#cariData" prefHeight="25.0" prefWidth="180.0" promptText="search by kode / nama" />
+      <Button fx:id="btnsearch" layoutX="223.0" layoutY="62.0" mnemonicParsing="false" onAction="#searchclick" prefHeight="25.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/icon/search_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TableView fx:id="tbvkereta" layoutX="42.0" layoutY="103.0" onMouseClicked="#tableclick" prefHeight="242.0" prefWidth="379.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="K1" />
+            <TableColumn prefWidth="75.0" text="K2" />
+         </columns>
+      </TableView>
+      <Label layoutX="497.0" layoutY="28.0" text="Data Kereta" textAlignment="RIGHT">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnfirst" layoutX="42.0" layoutY="368.0" mnemonicParsing="false" onAction="#firstclick" prefHeight="25.0" prefWidth="61.0" text="First" />
+      <Button fx:id="btnprevious" layoutX="113.0" layoutY="368.0" mnemonicParsing="false" onAction="#previousclick" text="Previous" />
+      <Button fx:id="btnnext" layoutX="181.0" layoutY="368.0" mnemonicParsing="false" onAction="#nextclick" prefHeight="25.0" prefWidth="61.0" text="Next" />
+      <Button fx:id="btnlast" layoutX="249.0" layoutY="368.0" mnemonicParsing="false" onAction="#lastclick" prefHeight="25.0" prefWidth="61.0" text="Last" />
+      <Button fx:id="btninsert" layoutX="358.0" layoutY="368.0" mnemonicParsing="false" onAction="#insertclick" prefHeight="25.0" prefWidth="69.0" text="Insert" />
+      <Button fx:id="btnupdate" layoutX="440.0" layoutY="368.0" mnemonicParsing="false" onAction="#updateclick" prefHeight="25.0" prefWidth="69.0" text="Update" />
+      <Button fx:id="btndelete" layoutX="358.0" layoutY="401.0" mnemonicParsing="false" onAction="#deleteclick" prefHeight="25.0" prefWidth="69.0" text="Delete" />
+      <Button fx:id="btnexit" layoutX="440.0" layoutY="401.0" mnemonicParsing="false" onAction="#exitclick" prefHeight="25.0" prefWidth="69.0" text="Exit" />
+   </children>
+</AnchorPane>

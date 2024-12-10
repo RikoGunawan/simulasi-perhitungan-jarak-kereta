@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="649.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="project.rikogunawan.FXMLDataStasiunController">
+   <children>
+      <Button fx:id="btnsearch" layoutX="563.0" layoutY="71.0" mnemonicParsing="false" onAction="#searchclick" prefHeight="25.0" prefWidth="61.0" text="Search" />
+      <TextField fx:id="searchstasiun" layoutX="382.0" layoutY="71.0" onKeyPressed="#cariData" prefHeight="25.0" prefWidth="180.0" promptText="search by id / nama" />
+      <Button fx:id="btnexit" layoutX="422.0" layoutY="403.0" mnemonicParsing="false" onAction="#exitclick" prefHeight="25.0" prefWidth="69.0" text="Exit" />
+      <Button fx:id="btndelete" layoutX="340.0" layoutY="403.0" mnemonicParsing="false" onAction="#deleteclick" prefHeight="25.0" prefWidth="69.0" text="Delete" />
+      <Button fx:id="btnupdate" layoutX="422.0" layoutY="370.0" mnemonicParsing="false" onAction="#updateclick" prefHeight="25.0" prefWidth="69.0" text="Update" />
+      <Button fx:id="btninsert" layoutX="340.0" layoutY="370.0" mnemonicParsing="false" onAction="#insertclick" prefHeight="25.0" prefWidth="69.0" text="Insert" />
+      <Button fx:id="btnlast" layoutX="231.0" layoutY="370.0" mnemonicParsing="false" onAction="#lastclick" prefHeight="25.0" prefWidth="61.0" text="Last" />
+      <Button fx:id="btnnext" layoutX="163.0" layoutY="370.0" mnemonicParsing="false" onAction="#nextclick" prefHeight="25.0" prefWidth="61.0" text="Next" />
+      <Button fx:id="btnprevious" layoutX="95.0" layoutY="370.0" mnemonicParsing="false" onAction="#previousclick" text="Previous" />
+      <Button fx:id="btnfirst" layoutX="24.0" layoutY="370.0" mnemonicParsing="false" onAction="#firstclick" prefHeight="25.0" prefWidth="61.0" text="First" />
+      <Label layoutX="22.0" layoutY="24.0" text="Data Stasiun">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbvstasiun" layoutX="24.0" layoutY="105.0" prefHeight="242.0" prefWidth="600.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="S1" />
+            <TableColumn prefWidth="75.0" text="S2" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

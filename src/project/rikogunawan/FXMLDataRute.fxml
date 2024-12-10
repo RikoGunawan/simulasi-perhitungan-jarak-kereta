@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="516.0" prefWidth="429.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="project.rikogunawan.FXMLDataRuteController">
+   <children>
+      <Button fx:id="btnhapus" layoutX="343.0" layoutY="245.0" mnemonicParsing="false" onAction="#hapusclick" prefHeight="25.0" prefWidth="39.0">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../projPenjualan/img/icon/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="34.0" layoutY="300.0" text="Perjalanan">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtjaraktotal" layoutX="274.0" layoutY="454.0" prefHeight="25.0" prefWidth="81.0" />
+      <Label layoutX="148.0" layoutY="457.0" text="Jarak Tempuh (Total)">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="88.0" text="Id Rute">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbvperjalanan" layoutX="34.0" layoutY="330.0" onMouseClicked="#tableclick" prefHeight="107.0" prefWidth="348.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="S1" />
+            <TableColumn prefWidth="75.0" text="S2" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnlast" layoutX="181.0" layoutY="245.0" mnemonicParsing="false" onAction="#lastclick" prefHeight="25.0" prefWidth="39.0">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../projPenjualan/img/icon/last.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnnext" layoutX="131.0" layoutY="245.0" mnemonicParsing="false" onAction="#nextclick" prefHeight="25.0" prefWidth="39.0">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../projPenjualan/img/icon/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnprev" layoutX="85.0" layoutY="245.0" mnemonicParsing="false" onAction="#prevclick" prefHeight="25.0" prefWidth="39.0">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../projPenjualan/img/icon/prev.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnfirst" layoutX="34.0" layoutY="245.0" mnemonicParsing="false" onAction="#firstclick" prefHeight="25.0" prefWidth="39.0">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../projPenjualan/img/icon/first.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="34.0" layoutY="38.0" prefHeight="34.0" prefWidth="209.0" text="Form Rute" textAlignment="RIGHT">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbvrute" layoutX="34.0" layoutY="125.0" onMouseClicked="#tableclick" prefHeight="107.0" prefWidth="348.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="S1" />
+            <TableColumn prefWidth="75.0" text="S2" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtidrute" layoutX="94.0" layoutY="84.0" onKeyPressed="#cariData" prefHeight="25.0" prefWidth="131.0" />
+      <Label layoutX="363.0" layoutY="457.0" text="km">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="305.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.rikogunawan.FXMLDocumentController">
+   <children>
+      <MenuBar prefHeight="28.0" prefWidth="556.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Display Data">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#DataStasiunClick" text="Stasiun" />
+                  <MenuItem mnemonicParsing="false" onAction="#DataKeretaClick" text="Kereta" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Input Data">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#InputStasiunClick" text="Stasiun" />
+                  <MenuItem mnemonicParsing="false" onAction="#InputKeretaClick" text="Kereta" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Perjalanan">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#DataJualClick" text="Data Penjualan" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Laporan">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Customer" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
