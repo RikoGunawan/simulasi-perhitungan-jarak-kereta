@@ -12,6 +12,18 @@ public class KeretaModel {
     private String idkereta, namakereta, gambar, tipe;
     private double kecepatan;
 
+    public KeretaModel() {
+    }
+
+    public KeretaModel(String idkereta, String namakereta, String gambar, String tipe, double kecepatan) {
+        this.idkereta = idkereta;
+        this.namakereta = namakereta;
+        this.gambar = gambar;
+        this.tipe = tipe;
+        this.kecepatan = kecepatan;
+    }
+
+
     public String getIdkereta() {
         return idkereta;
     }

@@ -24,7 +24,8 @@ import javafx.stage.Stage;
 public class FXMLDocumentController implements Initializable {
     public static DBStasiun dtstasiun=new DBStasiun();
     public static DBKereta dtkereta=new DBKereta();
-    public static DBRute dtrute=new DBRute();
+    public static DBRute dtRute=new DBRute();
+    public static DBPerjalanan dtPerjalanan=new DBPerjalanan();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -95,9 +96,25 @@ public class FXMLDocumentController implements Initializable {
        
     }
 
-    private void DataRuteClick(ActionEvent event) {
+//    private void DataRuteClick(ActionEvent event) {
+//        try{  
+//            FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLDataRute.fxml"));    
+//            Parent root = (Parent)loader.load();
+//            Scene scene = new Scene(root);
+//            Stage stg=new Stage();
+//            stg.initModality(Modality.APPLICATION_MODAL);
+//            stg.setResizable(false);
+//            stg.setIconified(false);
+//            stg.setScene(scene);
+//            stg.show();        
+//        } catch (IOException e){   e.printStackTrace();   } 
+//    }
+
+
+    @FXML
+    private void DataPerjalananClick(ActionEvent event) {
         try{  
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLDataRute.fxml"));    
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLDataPerjalanan.fxml"));    
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg=new Stage();
@@ -110,7 +127,27 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void DataJualClick(ActionEvent event) {
+private void SimulasiClick(ActionEvent event) {
+    try {
+        // Muat file FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSimulasi.fxml"));
+        Parent root = loader.load();
+
+        // Buat scene baru
+        Scene scene = new Scene(root);
+
+        // Atur stage baru
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL); // Membuka sebagai jendela modal
+        stage.setResizable(false); // Nonaktifkan resize
+        stage.setIconified(false); // Nonaktifkan minimize
+        stage.setScene(scene);
+
+        // Tampilkan stage
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
     }
-    
+}
+
 }

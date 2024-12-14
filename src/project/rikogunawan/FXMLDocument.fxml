@@ -24,14 +24,13 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Perjalanan">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#DataJualClick" text="Data Penjualan" />
+                  <MenuItem mnemonicParsing="false" onAction="#DataPerjalananClick" text="Data Perjalanan" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Laporan">
+            <Menu mnemonicParsing="false" text="Simulasi">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Customer" />
-               </items>
-            </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#SimulasiClick" text="Simulasi Perjalanan" />
+               </items></Menu>
          </menus>
       </MenuBar>
    </children>

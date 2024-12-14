@@ -2,10 +2,27 @@
 package project.rikogunawan;
 
 public class RuteModel {
-    private String idrute, idstasiunasal, idstasiuntujuan;
-    private int waktu;
+    private String idrute, idperjalanan, idstasiunasal, idstasiuntujuan;
+    private int urut, waktu;
     private double jarak;
 
+    //Properti Lokal
+    private String namastasiunasal;  
+    private String namastasiuntujuan; 
+
+    public RuteModel() {
+    }
+
+     public RuteModel(String idrute, String idperjalanan, String namastasiunasal, String namastasiuntujuan, int urut, int waktu, double jarak) {
+        this.idrute = idrute;
+        this.idperjalanan = idperjalanan;
+        this.namastasiunasal = namastasiunasal;
+        this.namastasiuntujuan = namastasiuntujuan;
+        this.urut = urut;
+        this.waktu = waktu;
+        this.jarak = jarak;
+    }
+    
     public String getIdrute() {
         return idrute;
     }
@@ -14,6 +31,15 @@ public class RuteModel {
         this.idrute = idrute;
     }
 
+    public String getIdperjalanan() {
+        return idperjalanan;
+    }
+
+    public void setIdperjalanan(String idperjalanan) {
+        this.idperjalanan = idperjalanan;
+    }
+
+    
     public String getIdstasiunasal() {
         return idstasiunasal;
     }
@@ -30,6 +56,14 @@ public class RuteModel {
         this.idstasiuntujuan = idstasiuntujuan;
     }
 
+    public int getUrut() {
+        return urut;
+    }
+
+    public void setUrut(int urut) {
+        this.urut = urut;
+    }
+
     public int getWaktu() {
         return waktu;
     }
@@ -44,6 +78,22 @@ public class RuteModel {
 
     public void setJarak(double jarak) {
         this.jarak = jarak;
+    }
+
+    public String getNamastasiunasal() {
+        return namastasiunasal;
+    }
+
+    public void setNamastasiunasal(String namastasiunasal) {
+        this.namastasiunasal = namastasiunasal;
+    }
+
+    public String getNamastasiuntujuan() {
+        return namastasiuntujuan;
+    }
+
+    public void setNamastasiuntujuan(String namastasiuntujuan) {
+        this.namastasiuntujuan = namastasiuntujuan;
     }
     
     
