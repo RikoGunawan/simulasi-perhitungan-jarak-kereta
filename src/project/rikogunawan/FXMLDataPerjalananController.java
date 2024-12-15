@@ -40,13 +40,11 @@ public class FXMLDataPerjalananController implements Initializable {
     private Button btnhapus;
     @FXML
     private TextField txtjaraktotal;
+    @FXML
+    private TextField txtwaktutotal;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        showDataPerjalanan();
-//        tbvperjalanan.getSelectionModel().selectFirst();
-//        txtidperjalanan.setText(tbvperjalanan.getSelectionModel().getSelectedItem().getIdperjalanan());
-//        showDataRute();
         showDataPerjalanan();
 
         // Validasi jika tabel tidak kosong
@@ -64,6 +62,14 @@ public class FXMLDataPerjalananController implements Initializable {
             Alert a = new Alert(Alert.AlertType.WARNING, "Data perjalanan kosong. Mohon tambahkan data terlebih dahulu.", ButtonType.OK);
             a.showAndWait();
         }
+
+        //Listener untuk Update Jarak + Waktu RealTime
+        tbvperjalanan.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                showDataRute();
+            }
+        });
+
     }
 
     public void showDataPerjalanan() {
@@ -102,47 +108,107 @@ public class FXMLDataPerjalananController implements Initializable {
             a.showAndWait();
         }
     }
+// Metode untuk menghitung total jarak
+
+    private double hitungJarakTotal(ObservableList<RuteModel> data) {
+        return data.stream().mapToDouble(RuteModel::getJarak).sum();
+    }
+
+// Metode untuk memperbarui total jarak ke database
+    private void updateJarakTotal(String idPerjalanan, double totalJarak) {
+        FXMLDocumentController.dtPerjalanan.updateJarakTotal(idPerjalanan, totalJarak);
+    }
+
+    private double hitungWaktuTotal(String idKereta, double jarakTotal) {
+        double kecepatan = FXMLDocumentController.dtkereta.getKecepatanKereta(idKereta);
+        if (kecepatan <= 0) {
+            throw new IllegalArgumentException("Kecepatan kereta tidak valid!");
+        }
+        return jarakTotal / kecepatan; // Waktu dalam jam
+    }
+
+    private void updateWaktuTotal(String idPerjalanan, double waktuTotal) {
+        FXMLDocumentController.dtPerjalanan.updateWaktuTotal(idPerjalanan, waktuTotal);
+    }
+
+    private String formatWaktu(double waktuDalamMenit) {
+        int totalMenit = (int) waktuDalamMenit;
+        int jam = totalMenit / 60; // Hitung jam
+        int menit = totalMenit % 60; // Hitung sisa menit
+        return String.format("%d jam %d menit", jam, menit);
+    }
 
     public void showDataRute() {
         if (tbvperjalanan.getSelectionModel().getSelectedItem() != null) {
+            // Ambil ID Perjalanan yang dipilih
             String idperjalanan = tbvperjalanan.getSelectionModel().getSelectedItem().getIdperjalanan();
             ObservableList<RuteModel> data = FXMLDocumentController.dtRute.Load(idperjalanan);
+
             if (data != null) {
+                // Bersihkan kolom dan item sebelumnya
                 tbvrute.getColumns().clear();
                 tbvrute.getItems().clear();
 
-                TableColumn col = new TableColumn("ID Rute");
-                col.setCellValueFactory(new PropertyValueFactory<RuteModel, String>("idrute"));
+                // Tambahkan kolom ke TableView
+                TableColumn<RuteModel, String> col = new TableColumn<>("ID Rute");
+                col.setCellValueFactory(new PropertyValueFactory<>("idrute"));
                 tbvrute.getColumns().addAll(col);
 
-                col = new TableColumn("Urutan ke-");
-                col.setCellValueFactory(new PropertyValueFactory<RuteModel, Integer>("urut"));
+                col = new TableColumn<>("Urutan ke-");
+                col.setCellValueFactory(new PropertyValueFactory<>("urut"));
                 tbvrute.getColumns().addAll(col);
 
-                col = new TableColumn("Waktu");
-                col.setCellValueFactory(new PropertyValueFactory<RuteModel, Integer>("waktu"));
+                col = new TableColumn<>("Waktu");
+                col.setCellValueFactory(new PropertyValueFactory<>("waktu"));
                 tbvrute.getColumns().addAll(col);
 
-                col = new TableColumn("Jarak");
-                col.setCellValueFactory(new PropertyValueFactory<RuteModel, Double>("jarak"));
+                col = new TableColumn<>("Jarak");
+                col.setCellValueFactory(new PropertyValueFactory<>("jarak"));
                 tbvrute.getColumns().addAll(col);
 
-                col = new TableColumn("Nama Stasiun Asal");
-                col.setCellValueFactory(new PropertyValueFactory<RuteModel, String>("namastasiunasal"));
+                col = new TableColumn<>("Nama Stasiun Asal");
+                col.setCellValueFactory(new PropertyValueFactory<>("namastasiunasal"));
                 tbvrute.getColumns().addAll(col);
 
-                col = new TableColumn("Nama Stasiun Tujuan");
-                col.setCellValueFactory(new PropertyValueFactory<RuteModel, String>("namastasiuntujuan"));
+                col = new TableColumn<>("Nama Stasiun Tujuan");
+                col.setCellValueFactory(new PropertyValueFactory<>("namastasiuntujuan"));
                 tbvrute.getColumns().addAll(col);
 
+                // Set item ke TableView
                 tbvrute.setItems(data);
+
+                // Hitung total jarak
+                double totalJarak = data.stream().mapToDouble(RuteModel::getJarak).sum();
+                txtjaraktotal.setText(String.format("%.2f km", totalJarak));
+
+                // Update total jarak ke database secara realtime
+                FXMLDocumentController.dtPerjalanan.updateJarakTotal(idperjalanan, totalJarak);
+
+                // Hitung waktu total secara realtime berdasarkan kecepatan kereta
+                PerjalananModel perjalanan = tbvperjalanan.getSelectionModel().getSelectedItem();
+                double kecepatanKereta = FXMLDocumentController.dtkereta.getKecepatanKereta(perjalanan.getIdkereta()); // Ambil kecepatan kereta
+                double waktuTotalMenit = (totalJarak / kecepatanKereta) * 60; // Waktu dalam menit
+                perjalanan.setWaktutotal((int) waktuTotalMenit); // Set waktu total dalam menit
+
+                // Update waktu total ke database
+                FXMLDocumentController.dtPerjalanan.updateWaktuTotal(idperjalanan, waktuTotalMenit);
+
+                // Tampilkan waktu dalam format jam dan menit
+                txtwaktutotal.setText(formatWaktu(waktuTotalMenit));
+
             } else {
+                // Kosongkan TableView jika tidak ada data
                 tbvrute.getColumns().clear();
                 tbvrute.getItems().clear();
+                txtjaraktotal.setText("0.00 km");
+                txtwaktutotal.setText("0 Jam 0 Menit");
             }
         } else {
+            // Jika tidak ada perjalanan yang dipilih, kosongkan TableView dan total jarak
             tbvrute.getColumns().clear();
             tbvrute.getItems().clear();
+            txtjaraktotal.setText("0.00 km");
+            txtwaktutotal.setText("0 Jam 0 Menit");
         }
     }
 

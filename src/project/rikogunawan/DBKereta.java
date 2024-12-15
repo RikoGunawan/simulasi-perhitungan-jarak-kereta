@@ -128,7 +128,7 @@ public class DBKereta {
                 tipe = "Petir";
             }
             getKeretaModel().setTipe(tipe);
-            
+
             con.bukaKoneksi();
             con.preparedStatement = con.dbKoneksi.prepareStatement("insert into kereta (idkereta ,namakereta, gambar, kecepatan, tipe) values (?,?,?,?,?)");
             con.preparedStatement.setString(1, getKeretaModel().getIdkereta());
@@ -181,7 +181,7 @@ public class DBKereta {
                 tipe = "Petir";
             }
             getKeretaModel().setTipe(tipe);
-            
+
             con.bukaKoneksi();
             con.preparedStatement = con.dbKoneksi.prepareStatement("update kereta set namakereta = ?, kecepatan = ?, gambar = ?, tipe = ?  where  idkereta = ? ");
             con.preparedStatement.setString(1, getKeretaModel().getNamakereta());
@@ -199,4 +199,25 @@ public class DBKereta {
             return berhasil;
         }
     }
+
+    public double getKecepatanKereta(String idKereta) {
+        double kecepatan = 0.0;
+        Koneksi con = new Koneksi();
+        try {
+            con.bukaKoneksi();
+            String query = "SELECT kecepatan FROM kereta WHERE idkereta = ?";
+            con.preparedStatement = con.dbKoneksi.prepareStatement(query);
+            con.preparedStatement.setString(1, idKereta);
+            ResultSet rs = con.preparedStatement.executeQuery();
+            if (rs.next()) {
+                kecepatan = rs.getDouble("kecepatan");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            con.tutupKoneksi();
+        }
+        return kecepatan;
+    }
+
 }

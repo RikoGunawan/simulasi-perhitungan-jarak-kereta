@@ -150,4 +150,20 @@ private void SimulasiClick(ActionEvent event) {
     }
 }
 
+    @FXML
+    private void InputPerjalananClick(ActionEvent event) {
+        try{
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLInputPerjalanan.fxml"));    
+        Parent root = (Parent)loader.load();        
+        Scene scene = new Scene(root);        
+        Stage stg=new Stage();
+        stg.initModality(Modality.APPLICATION_MODAL);
+        stg.setResizable(false);        
+        stg.setIconified(false);        
+        stg.setScene(scene);
+        stg.showAndWait();
+        } catch (IOException e){   
+            e.printStackTrace();   }
+    }
+
 }

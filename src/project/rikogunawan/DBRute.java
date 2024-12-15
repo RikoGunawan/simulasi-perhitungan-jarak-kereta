@@ -1,6 +1,7 @@
 package project.rikogunawan;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -98,6 +99,31 @@ public class DBRute {
             con.tutupKoneksi();
             return berhasil;
         }
+    }
+
+    public int validasi(String idPerjalanan) {
+        int val = 0;
+        try {
+            // Membuka koneksi
+            Koneksi con = new Koneksi();
+            con.bukaKoneksi();
+
+            // Query untuk mengecek jumlah baris dengan ID yang sama
+            String query = "SELECT COUNT(*) AS jml FROM perjalanan WHERE idperjalanan = '" + idPerjalanan + "'";
+            con.statement = con.dbKoneksi.createStatement();
+            ResultSet rs = con.statement.executeQuery(query);
+
+            // Mengambil hasil validasi
+            while (rs.next()) {
+                val = rs.getInt("jml"); // Jumlah data dengan ID yang sama
+            }
+
+            // Menutup koneksi
+            con.tutupKoneksi();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return val;
     }
 
     public boolean delete(String id) {

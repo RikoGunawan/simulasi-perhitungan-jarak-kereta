@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="522.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.rikogunawan.FXMLInputPerjalananController">
+   <children>
+      <Button fx:id="btnresetperjalanan" layoutX="202.0" layoutY="457.0" mnemonicParsing="false" onAction="#resetperjalananclick" prefHeight="11.0" prefWidth="134.0" text="Reset Perjalanan" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="btnresetrute" layoutX="33.0" layoutY="288.0" mnemonicParsing="false" onAction="#resetruteclick" prefHeight="25.0" prefWidth="255.0" text="Reset Rute" />
+      <Button fx:id="btnsimpanrute" layoutX="33.0" layoutY="253.0" mnemonicParsing="false" onAction="#simpanruteclick" prefHeight="25.0" prefWidth="255.0" text="Simpan Rute" />
+      <TextField fx:id="txtjarak" layoutX="113.0" layoutY="166.0" prefHeight="25.0" prefWidth="89.0" />
+      <TextField fx:id="txtwaktu" layoutX="113.0" layoutY="135.0" prefHeight="25.0" prefWidth="89.0" />
+      <TextField fx:id="txturut" layoutX="113.0" layoutY="103.0" prefHeight="25.0" prefWidth="56.0" />
+      <Label layoutX="33.0" layoutY="169.0" text="Jarak" />
+      <Label layoutX="33.0" layoutY="138.0" text="Waktu" />
+      <Label layoutX="33.0" layoutY="107.0" text="Urut" />
+      <TableView fx:id="tbvstasiunasal" layoutX="305.0" layoutY="72.0" onMouseClicked="#tbvcustclick" prefHeight="241.0" prefWidth="193.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnsimpanperjalanan" layoutX="36.0" layoutY="457.0" mnemonicParsing="false" onAction="#simpanperjalananclick" prefHeight="17.0" prefWidth="152.0" text="Simpan Perjalanan" />
+      <TextField fx:id="txtidperjalanan" layoutX="114.0" layoutY="381.0" prefHeight="25.0" prefWidth="126.0" />
+      <Label layoutX="509.0" layoutY="49.0" text="Pilih Stasiun Tujuan" />
+      <Label layoutX="33.0" layoutY="76.0" text="ID Rute" />
+      <Label layoutX="35.0" layoutY="418.0" text="ID Kereta" />
+      <Label layoutX="36.0" layoutY="385.0" text="ID Perjalanan" />
+      <Label layoutX="36.0" layoutY="331.0" text="Input Perjalanan">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbidkereta" layoutX="113.0" layoutY="414.0" prefHeight="25.0" prefWidth="126.0" />
+      <TextField fx:id="txtidrute" layoutX="112.0" layoutY="72.0" prefHeight="25.0" prefWidth="126.0" />
+      <Label layoutX="32.0" layoutY="28.0" text="Input Rute">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="305.0" layoutY="50.0" text="Pilih Stasiun Asal" />
+      <TableView fx:id="tbvstasiuntujuan" layoutX="509.0" layoutY="72.0" onMouseClicked="#tbvcustclick" prefHeight="241.0" prefWidth="193.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Label layoutX="33.0" layoutY="202.0" text="ID Perjalanan" />
+      <ComboBox fx:id="cmbidperjalanan" layoutX="113.0" layoutY="198.0" prefHeight="25.0" prefWidth="126.0" />
+      <Label layoutX="32.0" layoutY="226.0" prefHeight="17.0" prefWidth="261.0" text="Tidak melihat ID Perjalanan yang Anda cari? Silahkan Input baru.">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

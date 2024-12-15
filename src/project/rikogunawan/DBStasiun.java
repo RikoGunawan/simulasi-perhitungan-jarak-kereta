@@ -70,8 +70,6 @@ public class DBStasiun {
             return null;
         }
     }
-
-
     
     public int validasi(String nomor) {
         int val = 0;

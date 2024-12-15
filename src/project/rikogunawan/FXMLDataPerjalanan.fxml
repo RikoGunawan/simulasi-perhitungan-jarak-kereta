@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.rikogunawan.FXMLDataPerjalananController">
+<AnchorPane id="AnchorPane" prefHeight="518.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.rikogunawan.FXMLDataPerjalananController">
    <children>
       <Button fx:id="btnhapus" layoutX="331.0" layoutY="230.0" mnemonicParsing="false" onAction="#hapusclick" prefHeight="25.0" prefWidth="39.0">
          <graphic>
@@ -89,5 +89,11 @@
          </columns>
       </TableView>
       <TextField fx:id="txtidperjalanan" layoutX="104.0" layoutY="70.0" onKeyPressed="#cariData" prefHeight="25.0" prefWidth="131.0" />
+      <Label layoutX="165.0" layoutY="474.0" text="Waktu Total">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtwaktutotal" layoutX="240.0" layoutY="471.0" prefHeight="25.0" prefWidth="131.0" />
    </children>
 </AnchorPane>

@@ -25,6 +25,7 @@
             <Menu mnemonicParsing="false" text="Perjalanan">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#DataPerjalananClick" text="Data Perjalanan" />
+                  <MenuItem mnemonicParsing="false" onAction="#InputPerjalananClick" text="Input Perjalanan" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Simulasi">
